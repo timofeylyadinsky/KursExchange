@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#5A5959"
+    app:cardCornerRadius="20sp"
+    android:layout_marginBottom="10dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="15dp">
+
+
+        <TextView
+            android:id="@+id/filialId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Брест"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_toEndOf="@id/filialId"
+            android:layout_marginStart="20dp"
+            android:layout_alignTop="@id/filialId"
+            />
+        <TextView
+            android:id="@+id/street"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Партизанский"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_below="@id/filialId"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/usdInText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_below="@id/street"
+            android:text="usd in"
+            />
+        <TextView
+            android:id="@+id/usdOutText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_below="@id/usdInText"
+            android:text="usd out"
+            />
+        <TextView
+            android:id="@+id/euroInText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_below="@id/usdOutText"
+            android:text="Euro In"
+            />
+        <TextView
+            android:id="@+id/euroOutText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_below="@id/euroInText"
+            android:text="Euro Out"
+            />
+
+
+        <TextView
+            android:id="@+id/usdIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/usdInText"
+            android:layout_below="@id/street"
+            android:text="2.4300"
+            android:layout_marginStart="30dp"
+            />
+        <TextView
+            android:id="@+id/usdOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/usdOutText"
+            android:layout_below="@id/usdInText"
+            android:text="2.4300"
+            android:layout_marginStart="30dp"
+            />
+        <TextView
+            android:id="@+id/euroIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/euroInText"
+            android:layout_below="@id/usdOutText"
+            android:text="2.4300"
+            android:layout_marginStart="30dp"
+            />
+        <TextView
+            android:id="@+id/euroOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/euroOutText"
+            android:layout_below="@id/euroInText"
+            android:text="2.4300"
+            android:layout_marginStart="30dp"
+            />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

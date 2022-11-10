@@ -8,6 +8,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        tv = findViewById<TextView>(R.id.tw1)
+        //tv = findViewById<TextView>(R.id.tw1)
         getExchange()
         val spinner = findViewById<Spinner>(R.id.citySpinner)
         val itemSelectedListener: AdapterView.OnItemSelectedListener =
@@ -39,7 +40,10 @@ class MainActivity : AppCompatActivity() {
                     val item = parent.getItemAtPosition(position) as String
                     Toast.makeText(this@MainActivity, item,Toast.LENGTH_LONG).show()
                     exchangesFilteredByCity = exchanges.filter{it.name.equals(item)}
-                    tv.text = exchangesFilteredByCity.toString()
+                    //tv.text = exchangesFilteredByCity.toString()
+                    exchangesList = findViewById(R.id.recyclerView)
+                    exchangesList.layoutManager = LinearLayoutManager(this@MainActivity)
+                    exchangesList.adapter = ExchangeAdapter(exchangesFilteredByCity,this@MainActivity)
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -60,7 +64,12 @@ class MainActivity : AppCompatActivity() {
                 response: Response<List<Exchange>>
             ) {
                 exchanges = response.body()!!
-                tv.text = exchanges.toString()
+                //tv.text = exchanges.toString()
+                exchangesFilteredByCity = exchanges.filter{it.name.equals("Минск")}
+                //tv.text = exchangesFilteredByCity.toString()
+                exchangesList = findViewById(R.id.recyclerView)
+                exchangesList.layoutManager = LinearLayoutManager(this@MainActivity)
+                exchangesList.adapter = ExchangeAdapter(exchangesFilteredByCity,this@MainActivity)
             }
         })}
 }
