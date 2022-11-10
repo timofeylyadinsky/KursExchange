@@ -1,10 +1,13 @@
 package lt.timofey.bank
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var tv: TextView
     lateinit var exchangesList: RecyclerView
     var exchanges = listOf<Exchange>()
+    var exchangesFilteredByCity = listOf<Exchange>()
     val REQUEST_CODE = 10
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +28,23 @@ class MainActivity : AppCompatActivity() {
         tv = findViewById<TextView>(R.id.tw1)
         getExchange()
         val spinner = findViewById<Spinner>(R.id.citySpinner)
-        spinner.onItemSelectedListener(){
+        val itemSelectedListener: AdapterView.OnItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    val item = parent.getItemAtPosition(position) as String
+                    Toast.makeText(this@MainActivity, item,Toast.LENGTH_LONG).show()
+                    exchangesFilteredByCity = exchanges.filter{it.name.equals(item)}
+                    tv.text = exchangesFilteredByCity.toString()
+                }
 
-        }
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
+        spinner.onItemSelectedListener = itemSelectedListener
     }
     fun getExchange(){
         val call = apiService.getExchange()
