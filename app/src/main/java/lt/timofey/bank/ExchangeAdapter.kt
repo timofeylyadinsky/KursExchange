@@ -19,7 +19,7 @@ class ExchangeAdapter(val plist: List<Exchange>, val mactivity: MainActivity): R
             holder = ExchangeViewHolder(inflater.inflate(R.layout.bank_item, parent, false))
 
             holder.itemView.setOnClickListener{
-                //mactivity.itemClick(holder.adapterPosition)
+                mactivity.itemClick(holder.adapterPosition)
             }
             /*holder.itemView.setOnLongClickListener {
                 mactivity.removeItem(holder.adapterPosition)

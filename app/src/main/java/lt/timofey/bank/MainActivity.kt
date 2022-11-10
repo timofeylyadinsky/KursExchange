@@ -1,5 +1,6 @@
 package lt.timofey.bank
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -50,6 +51,13 @@ class MainActivity : AppCompatActivity() {
             }
         spinner.onItemSelectedListener = itemSelectedListener
     }
+
+    fun itemClick(position: Int){
+        val intent = Intent(this, ExchangeActivity::class.java)
+        intent.putExtra("product", exchangesFilteredByCity[position])
+        startActivityForResult(intent, REQUEST_CODE)
+    }
+
     fun getExchange(){
         val call = apiService.getExchange()
 
